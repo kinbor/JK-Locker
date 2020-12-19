@@ -117,6 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="rtbRemark.Text" xml:space="preserve">
+    <value>责任声明：
+1.请不要使用此工具加密大文件或非文本数据，且加密后确保可以被成功解密。
+2.如果解密后的数据存在乱码，请将原文件编码方式改为UTF-8后，重新加密。
+3.本工具开放源码、免费使用，在使用过程中产生任何法律问题，作者本人概不负责。
+4.为了保证您的数据安全，请从指定地址获取：https://github.com/kinbor/JK-Locker。
+5.此工具只能运行在安装过.net framework 4.0+ 的系统里。
+</value>
+  </data>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

@@ -186,5 +186,10 @@ namespace JK_Locker
                 }
             }
         }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            this.txtDPlainText.Text = "";
+        }
     }
 }

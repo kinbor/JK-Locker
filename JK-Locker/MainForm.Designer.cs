@@ -29,7 +29,9 @@ namespace JK_Locker
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.gbEncrypt = new System.Windows.Forms.GroupBox();
+            this.lblEPasswordMessage = new System.Windows.Forms.Label();
             this.txtEPasswordText = new System.Windows.Forms.TextBox();
             this.btnECipherFilePath = new System.Windows.Forms.Button();
             this.btnEPlainFilePath = new System.Windows.Forms.Button();
@@ -40,6 +42,8 @@ namespace JK_Locker
             this.lblECipherFilePath = new System.Windows.Forms.Label();
             this.lblEPlainFilePath = new System.Windows.Forms.Label();
             this.gbDecrypt = new System.Windows.Forms.GroupBox();
+            this.rtbRemark = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.txtDPasswordText = new System.Windows.Forms.TextBox();
             this.txtDPlainText = new System.Windows.Forms.TextBox();
             this.btnDCipherFilePath = new System.Windows.Forms.Button();
@@ -51,9 +55,7 @@ namespace JK_Locker
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.pnlMiddle = new System.Windows.Forms.Panel();
             this.lblMessage = new System.Windows.Forms.Label();
-            this.lblEPasswordMessage = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblRemark = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
             this.gbEncrypt.SuspendLayout();
             this.gbDecrypt.SuspendLayout();
             this.pnlMiddle.SuspendLayout();
@@ -78,6 +80,17 @@ namespace JK_Locker
             this.gbEncrypt.TabIndex = 0;
             this.gbEncrypt.TabStop = false;
             this.gbEncrypt.Text = "文本加密";
+            // 
+            // lblEPasswordMessage
+            // 
+            this.lblEPasswordMessage.AutoSize = true;
+            this.lblEPasswordMessage.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lblEPasswordMessage.ForeColor = System.Drawing.Color.Blue;
+            this.lblEPasswordMessage.Location = new System.Drawing.Point(361, 77);
+            this.lblEPasswordMessage.Name = "lblEPasswordMessage";
+            this.lblEPasswordMessage.Size = new System.Drawing.Size(269, 12);
+            this.lblEPasswordMessage.TabIndex = 6;
+            this.lblEPasswordMessage.Text = "提醒：务必牢记密码，否则无法解密被加密的文件";
             // 
             // txtEPasswordText
             // 
@@ -163,7 +176,8 @@ namespace JK_Locker
             // 
             // gbDecrypt
             // 
-            this.gbDecrypt.Controls.Add(this.lblRemark);
+            this.gbDecrypt.Controls.Add(this.btnClear);
+            this.gbDecrypt.Controls.Add(this.rtbRemark);
             this.gbDecrypt.Controls.Add(this.label1);
             this.gbDecrypt.Controls.Add(this.txtDPasswordText);
             this.gbDecrypt.Controls.Add(this.txtDPlainText);
@@ -173,12 +187,35 @@ namespace JK_Locker
             this.gbDecrypt.Controls.Add(this.btnDExecute);
             this.gbDecrypt.Controls.Add(this.lblDPasswordText);
             this.gbDecrypt.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gbDecrypt.Location = new System.Drawing.Point(0, 138);
+            this.gbDecrypt.Location = new System.Drawing.Point(0, 139);
             this.gbDecrypt.Name = "gbDecrypt";
-            this.gbDecrypt.Size = new System.Drawing.Size(834, 403);
+            this.gbDecrypt.Size = new System.Drawing.Size(834, 422);
             this.gbDecrypt.TabIndex = 1;
             this.gbDecrypt.TabStop = false;
             this.gbDecrypt.Text = "文本解密";
+            // 
+            // rtbRemark
+            // 
+            this.rtbRemark.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rtbRemark.ForeColor = System.Drawing.Color.Black;
+            this.rtbRemark.Location = new System.Drawing.Point(12, 322);
+            this.rtbRemark.Name = "rtbRemark";
+            this.rtbRemark.ReadOnly = true;
+            this.rtbRemark.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.None;
+            this.rtbRemark.Size = new System.Drawing.Size(684, 100);
+            this.rtbRemark.TabIndex = 15;
+            this.rtbRemark.Text = resources.GetString("rtbRemark.Text");
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.Location = new System.Drawing.Point(361, 49);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 12);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "提醒：解密密码 = 加密密码";
             // 
             // txtDPasswordText
             // 
@@ -196,7 +233,7 @@ namespace JK_Locker
             this.txtDPlainText.Name = "txtDPlainText";
             this.txtDPlainText.ReadOnly = true;
             this.txtDPlainText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtDPlainText.Size = new System.Drawing.Size(810, 261);
+            this.txtDPlainText.Size = new System.Drawing.Size(810, 247);
             this.txtDPlainText.TabIndex = 8;
             // 
             // btnDCipherFilePath
@@ -263,7 +300,7 @@ namespace JK_Locker
             this.pnlMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMiddle.Location = new System.Drawing.Point(0, 107);
             this.pnlMiddle.Name = "pnlMiddle";
-            this.pnlMiddle.Size = new System.Drawing.Size(834, 31);
+            this.pnlMiddle.Size = new System.Drawing.Size(834, 32);
             this.pnlMiddle.TabIndex = 2;
             // 
             // lblMessage
@@ -273,49 +310,25 @@ namespace JK_Locker
             this.lblMessage.ForeColor = System.Drawing.Color.Blue;
             this.lblMessage.Location = new System.Drawing.Point(0, 0);
             this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(834, 31);
+            this.lblMessage.Size = new System.Drawing.Size(834, 32);
             this.lblMessage.TabIndex = 0;
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblEPasswordMessage
+            // btnClear
             // 
-            this.lblEPasswordMessage.AutoSize = true;
-            this.lblEPasswordMessage.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblEPasswordMessage.ForeColor = System.Drawing.Color.Blue;
-            this.lblEPasswordMessage.Location = new System.Drawing.Point(361, 77);
-            this.lblEPasswordMessage.Name = "lblEPasswordMessage";
-            this.lblEPasswordMessage.Size = new System.Drawing.Size(269, 12);
-            this.lblEPasswordMessage.TabIndex = 6;
-            this.lblEPasswordMessage.Text = "提醒：务必牢记密码，否则无法解密被加密的文件";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(361, 49);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 12);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "提醒：解密密码 = 加密密码";
-            // 
-            // lblRemark
-            // 
-            this.lblRemark.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lblRemark.ForeColor = System.Drawing.Color.Blue;
-            this.lblRemark.Location = new System.Drawing.Point(12, 337);
-            this.lblRemark.Name = "lblRemark";
-            this.lblRemark.Size = new System.Drawing.Size(810, 64);
-            this.lblRemark.TabIndex = 14;
-            this.lblRemark.Text = "责任声明：\r\n1.请不要使用此工具加密大文件或非文本数据，且加密后确保可以被成功解密。\r\n2.本工具开放源码、免费使用，在使用过程中产生任何法律问题，作者本人概不" +
-    "负责。\r\n3.为了保证您的数据安全，请从指定地址获取：https://github.com/kinbor/JK-Locker。\r\n4.此工具只能运行在安装过.n" +
-    "et framework 4.0+ 的系统里";
+            this.btnClear.Location = new System.Drawing.Point(738, 326);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(84, 23);
+            this.btnClear.TabIndex = 16;
+            this.btnClear.Text = "清空";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 541);
+            this.ClientSize = new System.Drawing.Size(834, 561);
             this.Controls.Add(this.pnlMiddle);
             this.Controls.Add(this.gbDecrypt);
             this.Controls.Add(this.gbEncrypt);
@@ -362,7 +375,8 @@ namespace JK_Locker
         private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Label lblEPasswordMessage;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblRemark;
+        private System.Windows.Forms.RichTextBox rtbRemark;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 
