@@ -191,5 +191,14 @@ namespace JK_Locker
         {
             this.txtDPlainText.Text = "";
         }
+        private void btnClearAll_Click(object sender, EventArgs e)
+        {
+            this.txtDCipherFilePath.Text = "";
+            this.txtDPasswordText.Text = "";
+            this.txtDPlainText.Text = "";
+            this.txtECipherFilePath.Text = "";
+            this.txtEPasswordText.Text = "";
+            this.txtEPlainFilePath.Text = "";
+        }
     }
 }
