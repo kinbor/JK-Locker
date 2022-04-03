@@ -34,6 +34,9 @@
   <PropertyGroup>
     <ApplicationIcon>SYJ.Lock_32.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AESHelper.cs" />
+    <Compile Include="DefaultApp.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="HashHelper.cs" />
     <Compile Include="HexHelper.cs" />
@@ -71,6 +75,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -90,6 +95,9 @@
     <Content Include="data\images\SYJ.Lock_48.ico" />
     <Content Include="data\images\SYJ.Lock_64.ico" />
     <Content Include="data\images\SYJ.Lock_96.ico" />
+    <None Include="JKLocker.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="SYJ.Lock_32.ico" />
   </ItemGroup>
   <ItemGroup />

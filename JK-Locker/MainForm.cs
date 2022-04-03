@@ -12,10 +12,14 @@ namespace JK_Locker
 {
     public partial class MainForm : Form
     {
-        public MainForm()
+        private string filePath = string.Empty;
+
+        public MainForm(string fPath)
         {
             InitializeComponent();
             InitForm();
+
+            filePath = fPath;
         }
         private void InitForm()
         {
@@ -38,11 +42,21 @@ namespace JK_Locker
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
         }
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
 
+        }
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(filePath) && !string.IsNullOrWhiteSpace(filePath))
+            {
+                this.txtDCipherFilePath.Text = filePath;
+                this.txtDPasswordText.SelectAll();
+                this.txtDPasswordText.Focus();
+
+                filePath = string.Empty;
+            }
         }
 
         private void btnEPlainFilePath_Click(object sender, EventArgs e)

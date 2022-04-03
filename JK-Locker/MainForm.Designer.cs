@@ -42,6 +42,7 @@ namespace JK_Locker
             this.lblECipherFilePath = new System.Windows.Forms.Label();
             this.lblEPlainFilePath = new System.Windows.Forms.Label();
             this.gbDecrypt = new System.Windows.Forms.GroupBox();
+            this.btnClearAll = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.rtbRemark = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,7 +57,6 @@ namespace JK_Locker
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.pnlMiddle = new System.Windows.Forms.Panel();
             this.lblMessage = new System.Windows.Forms.Label();
-            this.btnClearAll = new System.Windows.Forms.Button();
             this.gbEncrypt.SuspendLayout();
             this.gbDecrypt.SuspendLayout();
             this.pnlMiddle.SuspendLayout();
@@ -196,6 +196,16 @@ namespace JK_Locker
             this.gbDecrypt.TabStop = false;
             this.gbDecrypt.Text = "文本解密";
             // 
+            // btnClearAll
+            // 
+            this.btnClearAll.Location = new System.Drawing.Point(738, 326);
+            this.btnClearAll.Name = "btnClearAll";
+            this.btnClearAll.Size = new System.Drawing.Size(84, 23);
+            this.btnClearAll.TabIndex = 17;
+            this.btnClearAll.Text = "清空(All)";
+            this.btnClearAll.UseVisualStyleBackColor = true;
+            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
+            // 
             // btnClear
             // 
             this.btnClear.Location = new System.Drawing.Point(648, 326);
@@ -326,16 +336,6 @@ namespace JK_Locker
             this.lblMessage.TabIndex = 0;
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnClearAll
-            // 
-            this.btnClearAll.Location = new System.Drawing.Point(738, 326);
-            this.btnClearAll.Name = "btnClearAll";
-            this.btnClearAll.Size = new System.Drawing.Size(84, 23);
-            this.btnClearAll.TabIndex = 17;
-            this.btnClearAll.Text = "清空(All)";
-            this.btnClearAll.UseVisualStyleBackColor = true;
-            this.btnClearAll.Click += new System.EventHandler(this.btnClearAll_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -350,6 +350,7 @@ namespace JK_Locker
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JK-Locker";
+            this.Activated += new System.EventHandler(this.MainForm_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.gbEncrypt.ResumeLayout(false);
