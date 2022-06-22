@@ -123,7 +123,7 @@
 2.如果解密后的数据存在乱码，请将原文件编码方式改为UTF-8后，重新加密。
 3.本工具开放源码、免费使用，在使用过程中产生任何法律问题，作者本人概不负责。
 4.为了保证您的数据安全，请从指定地址获取：https://github.com/kinbor/JK-Locker。
-5.此工具只能运行在安装过.net framework 4.0+ 的系统里。
+5.此工具只能运行在安装过.net framework 4.8+ 的系统里。
 </value>
   </data>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
